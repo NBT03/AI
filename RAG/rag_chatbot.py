@@ -300,7 +300,7 @@ class InteractiveRAGChatbot:
             # Tạo retriever
             retriever = self.vectorstore.as_retriever(
                 search_type="similarity",
-                search_kwargs={"k": 3}
+                search_kwargs={"k": 10}
             )
             
             # Lấy tài liệu liên quan
@@ -415,8 +415,8 @@ if __name__ == "__main__":
     chatbot = InteractiveRAGChatbot(persist_directory="./my_rag_db")
     
     # Tải tài liệu (bỏ comment dòng này nếu bạn muốn tải tài liệu ngay lập tức)
-    file_path = "results.md"  # Thay thế bằng đường dẫn của bạn
-    chatbot.load_documents(file_path)
-    
+    # file_path = "results.md"  # Thay thế bằng đường dẫn của bạn
+    # chatbot.load_documents(file_path)
+    chatbot.load_directory("/home/pc/tienai/AI/RAG/markdown_files")
     # Chạy chế độ tương tác
     chatbot.run_interactive()

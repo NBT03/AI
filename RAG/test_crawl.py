@@ -8,12 +8,12 @@ async def main():
 
     async with AsyncWebCrawler(config=browser_config) as crawler:
         result = await crawler.arun(
-        url="https://www.vietjack.com/soan-van-lop-6-kn/tom-tat-neu-cau-muon-co-mot-nguoi-ban.jsp",
+        url="https://vndoc.com/cam-nghi-cua-em-ve-mot-danh-lam-thang-canh-cua-que-huong-dat-nuoc-248073",
         config=CrawlerRunConfig()
 )
 
     print(result.markdown)
-    with open("results.md", "w", encoding="utf-8") as file:
+    with open("results1.md", "w", encoding="utf-8") as file:
         file.write(result.markdown)
 
 if __name__ == "__main__":

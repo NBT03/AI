@@ -136,6 +136,4 @@ def reset_database():
         return jsonify({"error": f"Lỗi khi xóa database: {str(e)}"}), 500
 
 if __name__ == '__main__':
-    # Chạy ứng dụng trên tất cả các interface (0.0.0.0) để có thể truy cập từ bên ngoài
-    # port=5000 là port mặc định của Flask
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=8765, debug=True)
