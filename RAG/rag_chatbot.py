@@ -43,7 +43,7 @@ class InteractiveRAGChatbot:
         self.llm = ChatGoogleGenerativeAI(
             model=model_name,
             temperature=temperature,
-            # convert_system_message_to_human=True
+            convert_system_message_to_human=True
         )
         
         # Khởi tạo text splitter
@@ -106,7 +106,7 @@ class InteractiveRAGChatbot:
             self.vectorstore = None
         
         # Tải và xử lý tất cả tài liệu
-        all_chunks = ["results.md"]
+        all_chunks = []
         for file_path in file_paths:
             try:
                 # Kiểm tra file tồn tại
@@ -208,7 +208,7 @@ class InteractiveRAGChatbot:
         Thông tin từ tài liệu:
         {context}
         
-        Câu hỏi: {question}
+        Câu hỏi: {query}
         
         Trả lời bằng tiếng Việt, rõ ràng và ngắn gọn. Hãy dựa vào thông tin từ tài liệu.
         Nếu không tìm thấy thông tin trong dữ liệu, hãy nói rằng bạn không biết câu trả lời dựa trên dữ liệu hiện có.
@@ -415,8 +415,8 @@ if __name__ == "__main__":
     chatbot = InteractiveRAGChatbot(persist_directory="./my_rag_db")
     
     # Tải tài liệu (bỏ comment dòng này nếu bạn muốn tải tài liệu ngay lập tức)
-    # file_path = "/path/to/your/file.txt"  # Thay thế bằng đường dẫn của bạn
-    # chatbot.load_documents(file_path)
+    file_path = "results.md"  # Thay thế bằng đường dẫn của bạn
+    chatbot.load_documents(file_path)
     
     # Chạy chế độ tương tác
     chatbot.run_interactive()
