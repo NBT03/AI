@@ -22,7 +22,7 @@ collection.add(
 )
 
 # Truy vấn vector gần nhất
-query_vector = [0.15, 0.25, 0.35]  # Một vector query
+query_vector = [0.1, 0.2, 0.3]  # Một vector query
 results = collection.query(
     query_embeddings=[query_vector],
     n_results=1
